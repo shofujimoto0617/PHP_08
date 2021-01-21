@@ -6,7 +6,9 @@
 
     <div style="padding: 20px">
         <div class="col-md-6">
-            <form>
+            <form method="post" action="{{ route('profile.store') }}" enctype="multipart/form-data">
+
+                @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">User Name</label>
                     <input type="text" name="name" class="form-control" value="{{ $editData->name }}">
@@ -18,11 +20,11 @@
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Profile Image</label>
-                    <input class="form-control" type="file" id="image">
+                    <input class="form-control" name="profile_photo_path" type="file" id="image">
                 </div>
 
                 <div class="mb-3">
-                    <img id="showImage" src="{{ (!empty($user['profile_photo_path']))? url('upload/user_images/'.$user['profile_photo_path']):url('upload/no_image.jpg') }}" style="width: 100px; height: 100px;">
+                    <img id="showImage" src="{{ (!empty($editData['profile_photo_path']))? url('upload/user_images/'.$editData['profile_photo_path']):url('upload/no_image.jpg') }}" style="width: 100px; height: 100px;">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>

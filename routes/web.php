@@ -41,3 +41,5 @@ Route::get('/user/logout', [MainUserController::class, 'Logout'])->name('user.lo
 Route::get('/user/profile', [MainUserController::class, 'UserProfile'])->name('user.profile');
 
 Route::get('/user/profile/edit', [MainUserController::class, 'UserProfileEdit'])->name('profile.edit');
+
+Route::post('/user/profile/store', [MainUserController::class, 'UserProfileStore'])->name('profile.store');
