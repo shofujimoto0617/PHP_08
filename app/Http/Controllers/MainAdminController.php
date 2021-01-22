@@ -35,8 +35,8 @@ class MainAdminController extends Controller
         $data->save();
 
         $notification = array(
-            'message' =>'User Profile Updated Successfully',
-            'alert-type' => 'success'
+            'message' =>'Admin Profile Updated Successfully',
+            'alert-type' => 'info'
         );
 
         return redirect()->route('admin.profile')->with($notification);
